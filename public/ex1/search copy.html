@@ -25,14 +25,11 @@
                 function showHint(){
                     axios.get('/suggest', {
                         params: {
-                            
                             query: document.getElementById("nameInput").value
                         }
                     })
                     .then(response=>{
-                        const suggestions=response.data;
-                        document.getElementById("suggestions").innerText = suggestions;
-                        // document.getElementById("suggestions").innerText = suggestions;
+                        document.getElementById("suggestions").innerText = response.data;
                     })
                     .catch(error=>{
                         console.log(error);
